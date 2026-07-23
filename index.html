@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,17 +11,34 @@
 </head>
 
 <body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-left">
+                <img src="images/logo.png"
+                     alt="Logo" />
+            </div>
+            <div class="header-right">
+                <!-- placeholder for future buttons -->
+            </div>
+        </div>
+    </header>
+
    <section id="about">
         <h1>Adam Desrosiers</h1>
         <p>
             Hi! I am Adam, a brand new indie game dev who works mainly in c# and c++. I am making my own game studio, Rosebox Games.
         </p>
-        <p>
-        DemoReel 2026:
-        <a href="https://www.youtube.com/watch?v=2hACfyl8xQw">
-            Youtube.com
-        </a>
-    </p>
+        <p>DemoReel 2026:</p>
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/2hACfyl8xQw"
+                title="DemoReel 2026"
+                loading="lazy"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
     </section>
 
     <hr>
