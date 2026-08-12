@@ -1,3 +1,8 @@
+:root{
+    --logo-height: 115px;
+    --logo-area-width: calc(var(--logo-height) * 3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -32,27 +37,53 @@ header.site-header {
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-between;
+    position: relative; /* allow absolute centering of the nav across the full header */
+}
+
+/* left image area: make the container three times the logo height (approx. 3× logo size) */
+.header-left {
+    width: var(--logo-area-width);
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
 }
 
 /* left image */
 .header-left img {
     display: block;
-    height: 115px; /* increased image size */
+    height: var(--logo-height); /* controlled by variable */
     width: auto;
     border-radius: 6px;
 }
 
-/* keep the right area available for future buttons */
+/* center the nav/buttons across the entire header by absolute centering */
 .header-right {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     gap: 12px;
     align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* override accidental top margin for nav so it centers vertically in the header */
+header.site-header nav {
+    margin-top: 0;
+}
+
+/* section separator with side margins */
+hr.section-sep {
+    border: none;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.08);
+    margin: 40px 6%;
 }
 
 /* other existing styles */
 nav {
-    margin-top: 20px;
 }
 
 nav a {
@@ -61,6 +92,96 @@ nav a {
     margin: 0 15px;
 }
 
+/* navigation inside header */
+.main-nav .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.main-nav .nav-item a,
+.main-nav .dropbtn {
+    color: #d4af37;
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.main-nav .nav-item a:hover,
+.main-nav .dropbtn:hover,
+.main-nav .nav-item a:focus,
+.main-nav .dropbtn:focus {
+    background: rgba(212, 175, 55, 0.06);
+    outline: none;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 220px;
+    background: rgba(10,10,10,0.98);
+    border-radius: 8px;
+    padding: 8px 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    display: none;
+    z-index: 1100;
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li { list-style: none; }
+.dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+.dropdown-menu a:hover,
+.dropdown-menu a:focus {
+    background: rgba(212, 175, 55, 0.04);
+}
+
+/* make dropdown accessible on small screens: stack nav */
+@media (max-width: 700px) {
+    .header-right {
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .main-nav .nav-list {
+        gap: 6px;
+        font-size: 0.9rem;
+    }
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+    }
+    .dropdown-menu a { padding-left: 12px; }
+}
+
+/* other existing layout rules */
 section {
     max-width: 1000px;
     margin: auto;
@@ -124,13 +245,14 @@ p{
     border: 0;
 }
 
-/* optional: scale header down on small screens */
+/* optional: scale header down on very small screens */
 @media (max-width: 480px) {
     header.site-header {
         height: 72px;
     }
+    :root{ --logo-height: 48px; --logo-area-width: calc(var(--logo-height) * 2.5); }
     .header-left img {
-        height: 48px;
+        height: var(--logo-height);
     }
     body {
         padding-top: 72px;
