@@ -245,6 +245,25 @@ p{
     border: 0;
 }
 
+.game-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+    .game-gallery img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+        .game-gallery img:last-child {
+            grid-column: 1 / -1;
+            width: 50%;
+            margin: 0 auto;
+        }
+
 /* optional: scale header down on very small screens */
 @media (max-width: 480px) {
     header.site-header {
