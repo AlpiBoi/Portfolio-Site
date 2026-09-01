@@ -3,6 +3,13 @@
     --logo-area-width: calc(var(--logo-height) * 3);
 }
 
+a{
+    color:#d4af37;
+}
+a:visited {
+    color: #a88720;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +39,7 @@ header.site-header {
     padding: 0 20px;
 }
 
-/* inner layout so we can add right-side controls later */
+/* inner layout*/
 .header-inner {
     display: flex;
     align-items: center;
@@ -40,7 +47,7 @@ header.site-header {
     position: relative; /* allow absolute centering of the nav across the full header */
 }
 
-/* left image area: make the container three times the logo height (approx. 3× logo size) */
+/* left image area*/
 .header-left {
     width: var(--logo-area-width);
     display: flex;
@@ -56,7 +63,7 @@ header.site-header {
     border-radius: 6px;
 }
 
-/* center the nav/buttons across the entire header by absolute centering */
+/*  */
 .header-right {
     position: absolute;
     left: 50%;
@@ -252,17 +259,41 @@ p{
     margin-top: 40px;
 }
 
-    .game-gallery img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
+.game-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-        .game-gallery img:last-child {
-            grid-column: 1 / -1;
-            width: 50%;
-            margin: 0 auto;
-        }
+.game-gallery img:last-child {
+    grid-column: 1 / -1;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.game-section {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#unity-container.unity-desktop {
+    position: relative !important;
+    width: 960px;
+    height: 600px;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+}
+
+#unity-canvas {
+    width: 960px;
+    height: 600px;
+    display: block;
+}
 
 /* optional: scale header down on very small screens */
 @media (max-width: 480px) {
