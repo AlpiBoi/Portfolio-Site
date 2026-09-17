@@ -58,6 +58,29 @@
                 <li>Wave-based progression with upgrades</li>
                 <li>Anchors which provide various buffs</li>
             </ul>
+            <p></p>
+            <h1>My contribution to the project</h1>
+            <p></p>
+            <p><h3>Enemy system:</h3>
+                <ul>
+                    <li>Enemy Base script: contains methods shared by all enemies, which all derive from this class</li>
+                    <li>Skeleton Frog: Swarming melee attackers. They use a targeting system to circle around the player and overwhelm them</li>
+                    <li>Rock Golem: Ranged caster: It hits the ground to send out a shockwave</li>
+                    <li>Croc caiman: I only was in charge of this enemy's lobbing spear attack, which calculates an arc from the croc to the player</li>  
+                </ul>
+            </p>
+            <p><h3>Skeleton targeting system</h3>
+                <ul> 
+                    <li>A ring of invisible empty slots will drag behind the player. Enemies will be assigned to each slots and navigate towards those insted of going straight to the player.</li>
+                    <li>The skeleton frogs retreat after each attacks and are assigned a new target location, making them dance and swarm around the player.</li>
+                </ul>
+            </p>
+            <p>Mudpits:
+                <ul>
+                    <li>When an entity which can move, player or enemy, it applies a powerful slow effect to them. This effect is completly removed when the entity leaves the mudpit</li>
+                </ul>
+            </p>
+
         </section>
     </main>
 
